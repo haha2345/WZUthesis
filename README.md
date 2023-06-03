@@ -30,4 +30,4 @@
 
 如果有模板有问题请提issue
 
-如果有latex方面的问题请通过邮箱woden3702@gmail.com联系我获取帮助（有偿），注明问题
+如果有latex方面的问题请通过邮箱woden3702@gmail.com联系我获取帮助，注明问题
