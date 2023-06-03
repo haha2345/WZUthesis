@@ -1,0 +1,109 @@
+%---------------------------------------------------------------------------%
+%-                                                                         -%
+%-                           LaTeX Template                                -%
+%-                                                                         -%
+%---------------------------------------------------------------------------%
+%- Copyright (C) Woden <woden3702@gmail.com> 
+%- This is free software: you can redistribute it and/or modify it
+%- under the terms of the GNU General Public License as published by
+%- the Free Software Foundation, either version 3 of the License, or
+%- (at your option) any later version.
+%---------------------------------------------------------------------------%
+%->> Document class declaration
+%---------------------------------------------------------------------------%
+\documentclass[twoside]{Style/ucasthesis}%
+%- Multiple optional arguments:
+%- [<oneside|twoside|print>]% oneside eprint, twoside eprint, or paper print
+%- [fontset=<adobe|none|...>]% specify font set instead of automatic detection
+%- [scheme=plain]% thesis writing of international students
+%- [draftversion]% show draft version information
+%- [standard options for ctex book class: draft|paper size|font size|...]%
+%---------------------------------------------------------------------------%
+%->> Document settings
+%---------------------------------------------------------------------------%
+\usepackage[numbers,list]{Style/artratex}% document settings
+%- 使用方式: \usepackage[option1,option2,...,optionN]{artratex}
+%- `[bibtex|biber]`：设置参考文献处理器和包。
+%- `[<numbers|super|authoryear|alpha>]`：设置引用和参考文献的样式。
+%- `<numbers>`：文本样式为“Jones [1]”，括号样式为“[1]”。
+%- `<super>`：文本样式为“Jones superscript [1]”，括号样式为“superscript [1]”。
+%- `<authoryear>`：文本样式为“Jones (1995)”，括号样式为“(Jones, 1995)”。
+%- `<alpha>`：文本样式不可用，括号样式为“[Jon95]”。
+%- `[geometry]`：通过`geometry`宏包重新配置页面布局。
+%- `[lscape]`：提供横向页面布局环境。
+%- `[xhf]`：通过`fancyhdr`宏包禁用页眉和页脚。
+%- `[color]`：通过`xcolor`宏包提供颜色支持。
+%- `[background]`：启用页面背景。
+%- `[tikz]`：通过`tikz`宏包提供复杂图表支持。
+%- `[table]`：通过`ctable`宏包提供复杂表格支持。
+%- `[list]`：提供增强算法和编程列表环境。
+%- `[math]`：启用一些额外的数学宏包。
+%- `[xlink]`：禁用链接颜色。
+
+\usepackage{Style/artracom}% user defined commands
+
+\usepackage{ragged2e} 
+\usepackage{booktabs,makecell, multirow, tabularx}
+\usepackage{pdfpages}
+
+%---------------------------------------------------------------------------%
+%->> Document inclusion
+%---------------------------------------------------------------------------%
+%\includeonly{Tex/Chap_1,...,Tex/Chap_N}% selected files compilation
+%---------------------------------------------------------------------------%
+%->> Document content
+%---------------------------------------------------------------------------%
+%-
+%-> Titlepage information
+%-
+\input{Tex/Frontinfo} %盲审版本注释掉这行，正文部分的页眉不会出现温州大学字样
+
+\renewcommand{\thetable}{\thechapter-\arabic{table}} %定义表格的caption编号为 章节号-表号 （中间的-可以任意修改）
+
+\renewcommand{\thefigure}{\thechapter-\arabic{figure}}% 定义figure的caption编号为 章节号-fig号
+
+\numberwithin{equation}{chapter}
+\renewcommand{\theequation}{\thechapter-\arabic{equation}} % 定义公式编号为 章节号-公式号
+
+\captionsetup{justification=centering}
+\begin{document}
+%-
+%-> Frontmatter: title page, abstract, content list, symbol list, preface
+%-
+\frontmatter% initialize the environment
+\input{Tex/Frontmatter}% title page, abstract
+{% content list region
+\linespread{1.2}% local line space
+\intobmk*{\cleardoublepage}{\contentsname}% add link to bookmark
+\tableofcontents% content catalog
+%\intobmk*{\cleardoublepage}{\listfigurename}% add link to bookmark
+%\listoffigures% figure catalog
+%\intobmk*{\cleardoublepage}{\listtablename}% add link to bookmark
+%\listoftables% table catalog
+}
+%\input{Tex/Prematter}% symbol list, preface content
+%-
+%-> Mainmatter
+%-
+\mainmatter% initialize the environment
+\input{Tex/Mainmatter}% main content
+%-
+%-> Appendix
+%-
+%\cleardoublepage%
+%\appendix% initialize the environment
+%\input{Tex/Appendix}% appendix content
+%-
+%-> Backmatter: bibliography, glossary, index
+%-
+\backmatter% initialize the environment
+\intotoc*{\cleardoublepage}{\bibname}% add link to toc
+\artxifstreq{\artxbib}{bibtex}{% enable bibtex
+    \bibliography{Biblio/ref}% bibliography
+}{%
+    \printbibliography% bibliography
+}
+\input{Tex/Backmatter}% other information
+\end{document}
+%---------------------------------------------------------------------------%
+

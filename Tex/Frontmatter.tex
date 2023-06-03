@@ -1,0 +1,35 @@
+%---------------------------------------------------------------------------%
+%->> Frontmatter
+%---------------------------------------------------------------------------%
+%-
+%-> 生成封面
+%-
+%\maketitle% 生成中文封面
+%\MAKETITLE% 生成英文封面
+
+\includepdfmerge{fengmian.pdf,1-4} %如果是盲审版本，注释掉这行
+%\includepdfmerge{mangshen.pdf,1-2} %盲审用行代码
+%-
+%-> 作者声明
+%-
+%\makedeclaration% 生成声明页
+%-
+%-> 中文摘要
+%-
+\intobmk\chapter*{摘\quad 要}% 显示在书签但不显示在目录
+\setcounter{page}{1}% 开始页码
+\pagenumbering{Roman}% 页码符号
+\zihao{4}
+在Tex/Frontmatter.tex中编辑摘要。
+
+
+\keywords{关键词1，关键词2，关键词3，关键词4}% 中文关键词
+%-
+%-> 英文摘要
+%-
+\intobmk\chapter*{Abstract}% 显示在书签但不显示在目录
+\zihao{4}
+Editting the abstract inTex/Frontmatter.tex.
+
+\KEYWORDS{keyword1, keyword2, keyword3, keyword4 }% 英文关键词
+%---------------------------------------------------------------------------%
