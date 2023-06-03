@@ -14,13 +14,13 @@
 
 ## 使用指南
 
-- 我本地latex环境为：编译工具MiKTeX，前端为Texstudio，编译器为PdfLaTex。建议和我保持一致，保证可以直接运行。
+- 项目运行的本地latex环境为：编译工具MiKTeX，前端Texstudio，编译器PdfLaTex。建议使用同一套latex环境，保证模板可以直接运行。
 - `Thesis.tex`为主要tex文件，包含扉页、摘要、正文等内容。
-- 封面：模板提供了温州大学硕士学位论文的终稿封面和盲审封面的word文件，在word文件中修改好后导出pdf文件，在Tex/Frontmatter.tex中修改对应的pdf。
-- 中英文摘要：在Tex/Frontmatter.tex中编辑中英文摘要。
-- 正文：在Tex/Mainmatter.tex中添加需要的tex文件，Tex文件夹中已经给出了实例tex文件。
-- 参考文献：本项目只应用了bibtex的导入方式，其他方式没有测试过。bib文件在Biblio文件夹中。
-- 致谢和成果：在Tex/Backmatter.tex中进行编辑。
+- 封面：模板提供了温州大学硕士学位论文的终稿封面和盲审封面的word文件，在word文件中修改好后导出pdf文件，在`Tex/Frontmatter.tex`中修改对应的pdf。
+- 中英文摘要：在`Tex/Frontmatter.tex`中编辑中英文摘要。
+- 正文：在`Tex/Mainmatter.tex`中添加需要的tex文件，Tex文件夹中已经给出了实例tex文件。
+- 参考文献：本项目只应用了bibtex的导入方式，其他方式没有测试过。bib文件在`Biblio`文件夹中。
+- 致谢和成果：在`Tex/Backmatter.tex`中进行编辑。
 
 ## 更新记录
 
